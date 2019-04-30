@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.sitefusion.testcase</groupId>
+    <artifactId>testcase</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Test Case</name>
+    <description>Test case for the problem with the adjusted Spin classes.</description>
+
+    <properties>
+        <!-- Camunda BPM -->
+        <camunda.version>7.10.0</camunda.version>
+        <camunda.spin.version>1.4.1</camunda.spin.version>
+        <camunda.commons.utils.version>1.4.0</camunda.commons.utils.version>
+        <camunda.bpm.reactor.core.version>2.1.1</camunda.bpm.reactor.core.version>
+
+        <!-- Maven -->
+        <maven.compiler.version>1.8</maven.compiler.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+
+        <!-- Oracle -->
+        <oracle.java.javadocs>https://docs.oracle.com/javase/8/docs/api/</oracle.java.javadocs>
+
+    </properties>
+
+    <dependencies>
+
+        <!-- Camunda BPM -->
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine</artifactId>
+            <version>${camunda.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine-spring</artifactId>
+            <version>${camunda.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine-rest</artifactId>
+            <classifier>classes</classifier>
+            <version>${camunda.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine-plugin-spin</artifactId>
+            <version>${camunda.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.spin</groupId>
+            <artifactId>camunda-spin-core</artifactId>
+            <version>${camunda.spin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.spin</groupId>
+            <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
+            <version>${camunda.spin.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.spin</groupId>
+            <artifactId>camunda-spin-dataformat-xml-dom</artifactId>
+            <version>${camunda.spin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.commons</groupId>
+            <artifactId>camunda-commons-utils</artifactId>
+            <version>${camunda.commons.utils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.extension.reactor</groupId>
+            <artifactId>camunda-bpm-reactor-core</artifactId>
+            <version>${camunda.bpm.reactor.core.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
