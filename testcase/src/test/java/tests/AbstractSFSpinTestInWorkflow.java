@@ -24,7 +24,7 @@ import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.runtimeS
  * <br><br>
  * Thank you very much in advance. :D
  */
-public class SimpleTestCase {
+public class AbstractSFSpinTestInWorkflow {
 
     @Rule
     public ProcessEngineRule rule = new ProcessEngineRule();
